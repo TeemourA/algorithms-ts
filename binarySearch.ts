@@ -19,7 +19,3 @@ const binarySearch = (list: number[], item: number) => {
 
   return null;
 };
-
-const arr = [1, 3, 5, 7, 9, 12, 15, 16, 29, 31, 54, 66, 71, 89, 93];
-
-console.log(binarySearch(arr, 89));
