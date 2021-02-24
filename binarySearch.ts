@@ -1,26 +1,17 @@
 const binarySearch = (list: number[], item: number) => {
-  let low = 0; // lower bound index
-  let high = list.length - 1; // upper bound index
+  let lowerBound = 0;
+  let upperBound = list.length - 1;
 
-  while (low <= high) {
-    console.log('inside loop');
-    let mid = Math.floor((low + high) / 2); // middle index
-    let guess = list[mid]; // current element on middle index
-    // console.log(`-----`);
-    // console.log(`low: ${low}`);
-    // console.log(`mid: ${mid}`);
-    // console.log(`high: ${high}`);
-    // console.log(`guess: ${guess} ? item: ${item}`);
-    // console.log('-----');
+  while (lowerBound <= upperBound) {
+    let middle = Math.floor((lowerBound + upperBound) / 2);
+    let guess = list[middle];
+
     if (guess === item) {
-      // if guess === searched item -> return it's index
-      return mid;
+      return middle;
     } else if (guess > item) {
-      // if guess > searched item -> decrease upper bound by 1
-      high = mid - 1;
+      upperBound = middle - 1;
     } else if (guess < item) {
-      // if guess < searched item -> increase lower bound by 1
-      low = mid + 1;
+      lowerBound = middle + 1;
     } else {
       return;
     }
@@ -29,4 +20,6 @@ const binarySearch = (list: number[], item: number) => {
   return null;
 };
 
-// const arr = [1, 3, 5, 7, 9, 12, 15, 16, 29, 31, 54, 66, 71, 89, 93];
+const arr = [1, 3, 5, 7, 9, 12, 15, 16, 29, 31, 54, 66, 71, 89, 93];
+
+console.log(binarySearch(arr, 89));
